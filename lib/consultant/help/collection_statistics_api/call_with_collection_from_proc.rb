@@ -10,7 +10,7 @@ module Consultant
           [
             'Instead of fetching random records,',
             'this method will use the proc provided',
-            'to generate a collection set. If the nubmer',
+            'to generate a collection set. If the number',
             'of records returned is less than the specified',
             'number of runs, tests will be called with the same',
             'records multiple times.',
