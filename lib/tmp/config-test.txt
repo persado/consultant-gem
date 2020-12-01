@@ -1,2 +1,0 @@
-test-one!: 1.000377 seconds
-test-one!: 1.001708 seconds
