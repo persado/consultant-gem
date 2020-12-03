@@ -1,0 +1,9 @@
+Description:
+    A generator to create a new test class plus a utility script you can use to run the test.
+
+Example:
+    rails generate benchmarking_test foo_bar
+
+    This will create:
+        app/services/benchmarking/aggregate_tests/foo_bar.rb
+        app/services/benchmarking/scripts/run_foo_bar.sh
