@@ -1,0 +1,41 @@
+# frozen_string_literal: true
+
+module Benchmarking
+  module AggregateTests
+    class <%= model.pluralize.titleize.gsub(' ', '') %>Controller<%= endpoint.titleize.gsub(' ', '')%> < ControllerTest
+      def model_class
+        <%= model.camelcase %>
+      end
+
+      # def apply_filters_to(relation)
+      #   # Comment this method in to add a filter to the above model_class.
+      #   # #apply_filters_to is passed one argument, the active record relation,
+      #   # to which you can apply any chain of active record methods.
+      #   # e.g.
+      #   # relation.join(:genes).where(gene: { name: :benefit })
+      # end
+
+      # def find_records
+      #   # you can comment in this method if you wish to do something more complex
+      #   # than model_class + filters. If you define this method,
+      #   # it will then be called in place of model_class + filters
+      # end
+
+      # def self.additional_columns
+      #   # if you would like add additional columns to the output xlsx,
+      #   # ie a column in a grammar processing test for num_gene_values,
+      #   # you can comment this method in and add those additional columns here.
+      #   # They should be defined in a hash in the following format,
+      #   # where COLUMN_NAME is the name that should appear in the output file,
+      #   # and METHOD_NAME is a PUBLIC CLASS method defined somewhere in THIS file.
+      #   # The method will automatically be passed a record of type #model_class
+      #   # ie
+      #   # {
+      #   #   workspace_build_state: :build_state,
+      #   # }
+      #   # would call through to a method with signature self.build_state(grammar),
+      #   # and would be named workspace_build_state in the output file.
+      # end
+    end
+  end
+end

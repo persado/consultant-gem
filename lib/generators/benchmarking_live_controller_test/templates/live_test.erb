@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+module Benchmarking
+  module AggregateTests
+    class <%= format(model.pluralize) %>Controller<%= format(endpoint) %><%= format(commit) %> < <%= format(model.pluralize) %>Controller<%= format(endpoint) %>
+      <%= Benchmarking::AggregateTests::Utility::GenerateControllerTestCode.for(model, endpoint, indentations: 3) %>
+      alias test <%= endpoint %>
+    end
+  end
+end

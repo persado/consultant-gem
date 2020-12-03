@@ -1,0 +1,10 @@
+Description:
+    FOR INTERNAL USE ONLY.
+    A generator to create a new controller test class based off of the existing controller code,
+    on a given commit.
+
+Example:
+    rails generate benchmarking_live_controller_test foos_update --commit a239s02nase0aldskf2
+
+    This will create:
+        app/services/benchmarking/aggregate_tests/foos_controller_update_a239s02nase0aldskf2.rb

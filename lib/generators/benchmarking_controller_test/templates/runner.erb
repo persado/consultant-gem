@@ -1,0 +1,12 @@
+#! /bin/bash
+current_path="$(pwd)"
+tail="${current_path#/*/genopedia/}"
+RAILS_ROOT="${current_path%/$tail}"
+cd "$RAILS_ROOT/app/services/benchmarking/scripts"
+RAILS_ROOT="$RAILS_ROOT" \
+PROGRAM_NAME="run_<%= file_name %>" \
+OUTPUT_FILENAME="<%= file_name %>_results" \
+FOR_CONTROLLER_TEST=true \
+MODEL_NAME="<%= model.pluralize %>" \
+ENDPOINT="<%= endpoint %>" \
+./run_tests.sh "$@"

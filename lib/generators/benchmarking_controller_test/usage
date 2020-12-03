@@ -1,0 +1,9 @@
+Description:
+    A generator to create a new controller test class plus a utility script you can use to run the test.
+
+Example:
+    rails generate benchmarking_controller_test foo_update
+
+    This will create:
+        app/services/benchmarking/aggregate_tests/foos_controller_update.rb
+        app/services/benchmarking/scripts/run_foos_controller_update.sh

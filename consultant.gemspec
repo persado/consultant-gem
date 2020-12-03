@@ -52,6 +52,9 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'activesupport', ['~> 5.1']
   s.add_runtime_dependency 'axlsx', ['~> 2.0']
   s.add_runtime_dependency 'caxlsx_rails', ['~> 0.6']
+  s.add_runtime_dependency 'ruby2ruby', ['~> 2.4']
+  s.add_runtime_dependency 'ruby_parser', ['~> 3.14']
+
   s.homepage =
     'https://rubygems.org/gems/consultant'
   s.license = 'MIT'
