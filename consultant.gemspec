@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
     'lib/consultant/query_counter.rb',
     'lib/consultant/results.rb',
     'lib/consultant/usage.rb',
+    'lib/consultant/csv_generator.rb',
     'lib/consultant/help/api_entry.rb',
     'lib/consultant/help/base.rb',
     'lib/consultant/help/checkpoint.rb',
@@ -39,9 +40,18 @@ Gem::Specification.new do |s|
     'lib/consultant/utility/aggregation_trackers/base.rb',
     'lib/consultant/utility/aggregation_trackers/collection_aggregation_tracker.rb',
     'lib/consultant/utility/aggregation_trackers/duration_aggregation_tracker.rb',
-    'lib/consultant/utility/aggregation_trackers/expired_tracker.rb'
+    'lib/consultant/utility/aggregation_trackers/expired_tracker.rb',
+    'lib/consultant/csv_utility/additional_cells_generator.rb',
+    'lib/consultant/csv_utility/formatting_utilities.rb',
+    'lib/consultant/csv_utility/matrix.rb',
+    'lib/consultant/csv_utility/parsers.rb',
+    'lib/consultant/csv_utility/rows_generator.rb',
+    'lib/consultant/csv_utility/validations.rb',
   ]
+  s.add_runtime_dependency 'actionpack', ['~> 5.1']
   s.add_runtime_dependency 'activesupport', ['~> 5.1']
+  s.add_runtime_dependency 'axlsx', ['~> 2.0']
+  s.add_runtime_dependency 'caxlsx_rails', ['~> 0.6']
   s.homepage =
     'https://rubygems.org/gems/consultant'
   s.license = 'MIT'

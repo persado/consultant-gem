@@ -34,7 +34,7 @@ module Consultant
 
       def fetch_from_file
         ids = []
-        File.open("tmp/#{filename}.txt", 'r') do |file|
+        File.open("#{Consultant.configuration.results_directory}/#{filename}.txt", 'r') do |file|
           file.each_line do |line|
             id = parse_and_validate_input_file_line!(line)
             ids << id unless id.nil?

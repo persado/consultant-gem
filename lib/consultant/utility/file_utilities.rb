@@ -11,8 +11,9 @@ module Consultant
             "#{Consultant.configuration.results_directory}/#{filename}.txt"
         end
 
-        def file_empty?
-          file_path.nil? || !File.file?(file_path) || File.zero?(file_path)
+        def file_empty?(file = nil)
+          file_to_check = file || file_path
+          file_to_check.nil? || !File.file?(file_to_check) || File.zero?(file_to_check)
         end
 
         def write_aggregate_data_to_file(results)

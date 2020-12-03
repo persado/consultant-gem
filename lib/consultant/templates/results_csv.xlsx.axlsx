@@ -1,0 +1,33 @@
+wb = xlsx_package.workbook
+styles = wb.styles
+
+# Create styles
+min = styles.add_style fg_color: '21de5a'
+max = styles.add_style fg_color: 'ff0505'
+
+wb.add_worksheet(name: @name) do |sheet|
+  # Create the header row
+  sheet.add_row @headers.unshift nil
+  # Create entries for each item
+  @rows.each do |row|
+    data_row = sheet.add_row row.map {|cell| cell[:contents]}
+    data_row.cells.each_with_index do |cell, index|
+      if row[index][:style] == 'max'
+        cell.style = max
+      elsif row[index][:style] == 'min'
+        cell.style = min
+      end
+    end
+  end
+  sheet.add_row []
+  @aggregate_rows.each do |aggregate_row|
+    aggregate_data_row = sheet.add_row aggregate_row.map {|cell| cell[:contents]}
+    aggregate_data_row.cells.each_with_index do |cell, index|
+      if aggregate_row[index][:style] == 'max'
+        cell.style = max
+      elsif aggregate_row[index][:style] == 'min'
+        cell.style = min
+      end
+    end
+  end
+end

@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+require 'action_controller'
 require 'active_support'
+require 'axlsx'
+require 'axlsx_rails/template_handler'
+require 'axlsx_rails/action_controller'
 require 'active_support/core_ext/object'
 require 'active_support/time_with_zone'
 require 'active_support/core_ext/module/delegation'
@@ -43,8 +47,19 @@ require 'consultant/utility/record_fetcher_helpers'
 require 'consultant/utility/record_fetcher'
 require 'consultant/utility/record_collection'
 
+require 'consultant/csv_utility/matrix'
+require 'consultant/csv_utility/parsers'
+require 'consultant/csv_utility/formatting_utilities'
+require 'consultant/csv_utility/validations'
+require 'consultant/csv_utility/rows_generator'
+require 'consultant/csv_utility/additional_cells_generator'
+
 require 'consultant/checkpoint'
 require 'consultant/collection_statistics'
+require 'consultant/csv_generator'
+
+ActionController::Base.prepend_view_path('lib/consultant/templates')
+ActionView::Template.register_template_handler :axlsx, ActionView::Template::Handlers::AxlsxBuilder.new
 
 module Consultant
   class << self
@@ -68,4 +83,11 @@ module Consultant
   def self.configured?
     configuration.configured?
   end
+end
+
+# TEMP REEMOVE
+
+Consultant.configure do |config|
+  config.timezone = 'UTC'
+  config.results_directory = 'lib/consultant/tmp'
 end
